@@ -50,7 +50,7 @@ AX = XS;
 A  = XSX';
 =#
 """
-for eig
+for eigen(A)
 [構文]
 S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n)); 
 gen_matrix_eig(S)
@@ -73,7 +73,7 @@ A  = BXSX';
 =#
 # Sg, Vg = eigen(A, B)
 """
-for eigs(A, B)
+for eigen(A, B)
 [構文]
 S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n)); 
 [説明]
