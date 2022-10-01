@@ -34,6 +34,8 @@ S = (0.005 .+ (0 : 0.01: 1.99));
 # S = (- 1/n .+ (1/n) .* Array(1 : n));
 # S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n));
 gen_matrix_svd(1000, 200, S)
+[説明]
+特異値分解の人工データを作成する。
 """
 function gen_matrix_svd(m, n, S)
   Random.seed!(0);
@@ -52,6 +54,8 @@ for eig
 [構文]
 S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n)); 
 gen_matrix_eig(S)
+[説明]
+固有値問題の人工データを作成する。
 """
 function gen_matrix_eig(S)
   Random.seed!(0);
@@ -67,17 +71,21 @@ Ax = sBx;
 AX = BXS; 
 A  = BXSX'; 
 =#
+# Sg, Vg = eigen(A, B)
 """
 for eigs(A, B)
 [構文]
 S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n)); 
+[説明]
+一般化固有値問題の人工データを作成する。
 """
 function gen_matrix_eigs(S)
   Random.seed!(0);
   n = size(S)[1]; 
   V = orth(rand(n, n)); 
   B = rand(n, n); 
-  A = B * V * S * V'; 
+  A = B * V * diagm(S) * V'; 
   return A, B, (V, S); 
 end
+
 
