@@ -29,8 +29,8 @@ end
 for svd
 [構文]
 S = (0.005 .+ (0 : 0.01: 1.99)); 
-# S=(- 1/n .+ (1/n) .* Array(1 : n));
-
+# S = (- 1/n .+ (1/n) .* Array(1 : n));
+# S = 10 .^ (- 1/n .+ Array(-(n-1):0) .* (2/n));
 gen_matrix_svd(1000, 200, S)
 """
 function gen_matrix_svd(m, n, S)
